@@ -50,7 +50,7 @@ export default function ContactMeModal() {
               contact me
             </Dialog.Title>
             <Dialog.Description className="text-gray-600 first-letter:capitalize">
-              don't hesitate to drop me a email if you need any questions
+              don&apos;t hesitate to drop me a email if you need any questions
               answered or a quick consultation!
             </Dialog.Description>
           </section>

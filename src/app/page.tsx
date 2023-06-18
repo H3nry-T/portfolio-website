@@ -116,28 +116,30 @@ export default function Home() {
         <CustomSection
           title="skills"
           description="These are my favourite tools and technologies to create my projects"
-          children={
+        >
+          {
             <section className="flex flex-wrap justify-center gap-12 mt-10 lg:justify-start">
               {skills.map((skill) => (
                 <CustomHoverCard skill={skill} key={skill.name} />
               ))}
             </section>
           }
-        />
+        </CustomSection>
       </section>
       {/* services */}
       <section id="services" className="mt-20">
         <CustomSection
           title="services"
           description="Here are the services that I offer"
-          children={
+        >
+          {
             <div className="grid grid-cols-1 gap-8 mt-10 md:grid-cols-3">
               {services.map((icon) => {
                 return <SpotlightCard icon={icon} key={icon.src} />;
               })}
             </div>
           }
-        />
+        </CustomSection>
       </section>
     </section>
   );
