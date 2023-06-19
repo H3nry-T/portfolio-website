@@ -38,7 +38,7 @@ export default function Home() {
     <section className="w-full min-h-screen mx-auto max-w-7xl ">
       {/* mouse cursor */}
       <motion.div
-        className={`fixed top-0 left-0 w-5 h-5 z-50 rounded-full bg-gray-300 mix-blend-difference pointer-events-none `}
+        className={`fixed top-0 left-0 w-5 h-5 z-50 rounded-full bg-gray-300 mix-blend-difference pointer-events-none block touch:hidden`}
         animate={isHovered ? "hover" : "normal"}
         transition={{
           duration: 0.1,
