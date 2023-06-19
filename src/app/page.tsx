@@ -10,7 +10,7 @@ import SpotlightCard from "@/components/SpotlightCard";
 export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(true);
 
   const variants: Variants = {
     normal: {
@@ -28,33 +28,30 @@ export default function Home() {
   useEffect(() => {
     function handleMouseMove(e: MouseEvent): void {
       setMousePosition({ x: e.clientX, y: e.clientY });
-    }
-    function handleTouchStart(e: TouchEvent): void {
-      setIsTouchDevice(true);
+      setIsTouchDevice(false);
     }
     window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("touchstart", handleTouchStart);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("touchstart", handleTouchStart);
     };
   }, []);
 
   return (
     <section className="w-full min-h-screen mx-auto max-w-7xl ">
       {/* mouse cursor */}
-      {!isTouchDevice && (
-        <motion.div
-          className={`fixed -top-10 -left-10 w-5 h-5 z-50 rounded-full bg-gray-300 mix-blend-difference pointer-events-none hidden sm:block`}
-          animate={isHovered ? "hover" : "normal"}
-          transition={{
-            duration: 0.1,
-          }}
-          variants={variants}
-        ></motion.div>
-      )}
+      <motion.div
+        className={`fixed top-0 left-0 w-5 h-5 z-50 rounded-full bg-gray-300 mix-blend-difference pointer-events-none   ${
+          !isTouchDevice ? "block" : "hidden"
+        }`}
+        animate={isHovered ? "hover" : "normal"}
+        transition={{
+          duration: 0.1,
+        }}
+        variants={variants}
+      ></motion.div>
       {/* mouse cursor */}
+
       <motion.section
         initial={{ opacity: 0, transform: "translateY(50px)" }}
         whileInView={{ opacity: 1, transform: "translateY(0px)" }}
