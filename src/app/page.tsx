@@ -30,10 +30,17 @@ export default function Home() {
       setMousePosition({ x: e.clientX, y: e.clientY });
       setIsTouchDevice(false);
     }
+
+    function handleTouchStart() {
+      setIsTouchDevice(true);
+    }
+
     window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("touchstart", handleTouchStart);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("touchstart", handleTouchStart);
     };
   }, []);
 
