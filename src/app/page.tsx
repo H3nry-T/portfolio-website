@@ -32,7 +32,7 @@ export default function Home() {
     }
 
     function handleTouchStart() {
-      setIsTouchDevice(true);
+      // setIsTouchDevice(true);
       window.removeEventListener("mousemove", handleMouseMove);
     }
 
