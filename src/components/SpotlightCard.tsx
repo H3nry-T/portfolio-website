@@ -39,7 +39,7 @@ export default function SpotlightCard({
         <div className="flex items-center justify-center">
           <img src={icon.src} alt={icon.alt} width={100} height={100} />
         </div>
-        <h2 className="mt-6 text-2xl font-semibold tracking-tight text-gray-700 truncate md:text-4xl">
+        <h2 className="mt-6 text-2xl font-semibold tracking-tight text-gray-700 truncate md:text-4xl first-letter:capitalize">
           {icon.title}
         </h2>
         <p className="mt-2 leading-7 text-gray-600">{icon.description}</p>

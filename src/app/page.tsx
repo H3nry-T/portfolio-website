@@ -32,7 +32,6 @@ export default function Home() {
     }
 
     function handleTouchStart() {
-      // setIsTouchDevice(true);
       window.removeEventListener("mousemove", handleMouseMove);
     }
 
@@ -74,7 +73,7 @@ export default function Home() {
         >
           i&apos;m henry &bull;
           <br />
-          <span className="text-gray-500">freelance</span>
+          <span className="text-gray-500">fullstack</span>
           <br /> web developer
         </h1>
         <img
