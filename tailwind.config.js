@@ -13,7 +13,7 @@ module.exports = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       animation: {
-        slideUpAndFade: "slideUpAndFade 0.4s ease-in-out",
+        slideUpAndFade: "slideUpAndFade 0.2s ease-in-out",
         slideFromRight: "slideFromRight 0.3s ease-in-out",
         bounceSide: "bounceSide 0.9s ease-in-out infinite",
         spinSlow: "spin 2.5s ease-in infinite",
