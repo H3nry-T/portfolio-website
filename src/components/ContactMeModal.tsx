@@ -54,43 +54,52 @@ export default function ContactMeModal() {
               answered or a quick consultation!
             </Dialog.Description>
           </section>
-          <section className="flex flex-col max-w-sm gap-4 mx-auto mt-6">
-            <fieldset className="flex items-center justify-between ">
-              <Label.Root className="capitalize" htmlFor="name">
+          <section className="flex flex-col max-w-sm gap-8 mx-auto mt-10">
+            <fieldset className="relative">
+              <input
+                type="text"
+                placeholder="Name"
+                id="name"
+                className="w-full px-2 py-1 placeholder-transparent border rounded-lg peer"
+              />
+              <Label.Root
+                className="absolute left-0 block pl-2 capitalize transition-all duration-200 ease-in-out -top-7 peer-placeholder-shown:top-1 peer-placeholder-shown:text-gray-400 peer-focus:-top-7 peer-focus:text-gray-600"
+                htmlFor="name"
+              >
                 name
               </Label.Root>
+            </fieldset>
+            <fieldset className="relative mt-2">
               <input
                 type="text"
-                placeholder="John Doe"
-                id="name"
-                className="px-2 py-1 border rounded-lg"
+                placeholder="Email"
+                id="email"
+                className="w-full px-2 py-1 placeholder-transparent border rounded-lg peer"
               />
-            </fieldset>
-            <fieldset className="flex items-center justify-between ">
-              <Label.Root className="capitalize" htmlFor="email">
+              <Label.Root
+                className="absolute left-0 block pl-2 capitalize transition-all duration-200 ease-in-out -top-7 peer-placeholder-shown:top-1 peer-placeholder-shown:text-gray-400 peer-focus:-top-7 peer-focus:text-gray-600"
+                htmlFor="email"
+              >
                 email
               </Label.Root>
-              <input
-                type="text"
-                placeholder="JohnDoe@gmail.com"
-                id="email"
-                className="px-2 py-1 border rounded-lg"
-              />
             </fieldset>
-            <fieldset className="flex flex-col gap-3 mt-4">
-              <Label.Root className="capitalize" htmlFor="message">
-                message
-              </Label.Root>
+            <fieldset className="relative flex flex-col gap-3 mt-2">
               <textarea
-                className="px-2 py-1 border"
+                className="px-2 py-1 placeholder-transparent border peer"
                 name="message"
                 id="message"
                 cols={30}
                 rows={10}
                 placeholder="Message me here"
-              ></textarea>
+              />
+              <Label.Root
+                className="absolute left-0 pl-2 transition-all duration-200 ease-in-out first-letter:capitalize -top-7 peer-placeholder-shown:top-1 peer-placeholder-shown:text-gray-400 peer-focus:-top-7 peer-focus:text-gray-600"
+                htmlFor="message"
+              >
+                message me here
+              </Label.Root>
             </fieldset>
-            <div className="flex justify-end mt-4">
+            <div className="flex justify-end mt-2">
               <Dialog.Close asChild>
                 <button
                   onClick={() => console.log("sent")}
