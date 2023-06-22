@@ -31,7 +31,7 @@ export default function ContactMeForm({
     register,
     handleSubmit,
     reset,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm({ resolver: zodResolver(schema) });
 
   return (
@@ -39,6 +39,16 @@ export default function ContactMeForm({
       onSubmit={handleSubmit(async (data) => {
         console.log(data);
         //TODO: send the data to a server using a post api route
+        const asyncAlert = () =>
+          new Promise((resolve) =>
+            setTimeout(() => {
+              resolve(
+                alert("Thank you for your message, I'll get back to you soon")
+              );
+            }, 100)
+          );
+        await asyncAlert();
+
         reset();
         setOpen(false);
       })}
