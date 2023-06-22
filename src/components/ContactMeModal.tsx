@@ -1,13 +1,17 @@
 "use client";
 import * as Dialog from "@radix-ui/react-dialog";
 import * as Label from "@radix-ui/react-label";
+import { FormEvent, useReducer, useState } from "react";
+import { z } from "zod";
+import ContactMeForm from "./ContactMeForm";
 
 export default function ContactMeModal() {
+  const [open, setOpen] = useState(false);
   return (
-    <Dialog.Root>
+    <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger asChild>
         <button className="flex items-center justify-around px-2 py-1 mt-3 text-gray-100 bg-gray-800 rounded-lg w-36 lg:mt-0 hover:bg-gray-700 active:bg-gray-800">
-          contact me{" "}
+          contact me
           <span className="text-gray-100">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -53,62 +57,9 @@ export default function ContactMeModal() {
               don&apos;t hesitate to drop me a email if you need any questions
               answered or a quick consultation!
             </Dialog.Description>
-          </section>
-          <section className="flex flex-col max-w-sm gap-8 mx-auto mt-10">
-            <fieldset className="relative">
-              <input
-                type="text"
-                placeholder="Name"
-                id="name"
-                className="w-full px-2 py-1 placeholder-transparent border rounded-lg peer"
-              />
-              <Label.Root
-                className="absolute left-0 block pl-2 capitalize transition-all duration-200 ease-in-out -top-7 peer-placeholder-shown:top-1 peer-placeholder-shown:text-gray-400 peer-focus:-top-7 peer-focus:text-gray-600"
-                htmlFor="name"
-              >
-                name
-              </Label.Root>
-            </fieldset>
-            <fieldset className="relative mt-2">
-              <input
-                type="text"
-                placeholder="Email"
-                id="email"
-                className="w-full px-2 py-1 placeholder-transparent border rounded-lg peer"
-              />
-              <Label.Root
-                className="absolute left-0 block pl-2 capitalize transition-all duration-200 ease-in-out -top-7 peer-placeholder-shown:top-1 peer-placeholder-shown:text-gray-400 peer-focus:-top-7 peer-focus:text-gray-600"
-                htmlFor="email"
-              >
-                email
-              </Label.Root>
-            </fieldset>
-            <fieldset className="relative flex flex-col gap-3 mt-2">
-              <textarea
-                className="px-2 py-1 placeholder-transparent border peer"
-                name="message"
-                id="message"
-                cols={30}
-                rows={10}
-                placeholder="Message me here"
-              />
-              <Label.Root
-                className="absolute left-0 pl-2 transition-all duration-200 ease-in-out first-letter:capitalize -top-7 peer-placeholder-shown:top-1 peer-placeholder-shown:text-gray-400 peer-focus:-top-7 peer-focus:text-gray-600"
-                htmlFor="message"
-              >
-                message me here
-              </Label.Root>
-            </fieldset>
-            <div className="flex justify-end mt-2">
-              <Dialog.Close asChild>
-                <button
-                  onClick={() => console.log("sent")}
-                  className="grid px-2 text-teal-900 bg-teal-400 rounded-lg place-items-center"
-                >
-                  Send
-                </button>
-              </Dialog.Close>
-            </div>
+            {/* FORM LIVES HERE */}
+            <ContactMeForm setOpen={setOpen} />
+            {/* FORM LIVES HERE */}
           </section>
         </Dialog.Content>
       </Dialog.Portal>
